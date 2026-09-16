@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wafi — CV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F6F5F1;
+    --ink:#16191C;
+    --ink-soft:#454B50;
+    --line:#D8D5CC;
+    --teal:#2F6F62;
+    --teal-soft:#E4ECE9;
+    --sidebar:#16191C;
+    --sidebar-text:#EDECE7;
+    --sidebar-line:#33383C;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+
+  body{
+    background:#DEDCD3;
+    font-family:'IBM Plex Sans', sans-serif;
+    color:var(--ink);
+    display:flex;
+    justify-content:center;
+    padding:40px 16px;
+  }
+
+  .sheet{
+    background:var(--paper);
+    width:100%;
+    max-width:880px;
+    display:grid;
+    grid-template-columns:260px 1fr;
+    min-height:1100px;
+    box-shadow:0 1px 3px rgba(0,0,0,0.12), 0 12px 30px rgba(0,0,0,0.10);
+  }
+
+  
+  .sidebar{
+    background:var(--sidebar);
+    color:var(--sidebar-text);
+    padding:44px 28px;
+  }
+
+  .photo{
+    width:110px;
+    height:110px;
+    border-radius:50%;
+    overflow:hidden;
+    background:#2A2F33;
+    border:2px solid var(--sidebar-line);
+    margin:0 0 18px;
+  }
+  .photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+
+  .name{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:28px;
+    font-weight:600;
+    line-height:1.25;
+    letter-spacing:-0.01em;
+    margin:0 0 4px;
+  }
+
+  .role{
+    font-size:14px;
+    color:#B9C7C2;
+    margin:0 0 32px;
+    line-height:1.5;
+  }
+
+  .side-block{margin-bottom:30px;}
+
+  .side-block h2{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    font-weight:500;
+    letter-spacing:0.04em;
+    color:#8FA39C;
+    margin:0 0 12px;
+    padding-bottom:8px;
+    border-bottom:1px solid var(--sidebar-line);
+  }
+
+  .contact-line{
+    font-size:13px;
+    color:#D6D4CD;
+    margin-bottom:8px;
+    word-break:break-word;
+    line-height:1.5;
+  }
+  .contact-line span{
+    display:block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10px;
+    color:#7C8B85;
+    margin-bottom:1px;
+  }
+
+  .skill-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    font-size:13px;
+    margin-bottom:10px;
+    color:#D6D4CD;
+  }
+  .skill-row .lvl{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10px;
+    color:#6F8079;
+  }
+
+  .tag-list{display:flex; flex-wrap:wrap; gap:6px;}
+  .tag{
+    font-size:12px;
+    color:#D6D4CD;
+    border:1px solid var(--sidebar-line);
+    border-radius:3px;
+    padding:3px 8px;
+  }
+
+  
+  .main{
+    padding:44px 40px 50px;
+  }
+
+  .section{margin-bottom:34px;}
+  .section:last-child{margin-bottom:0;}
+
+  .section h2{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:0.03em;
+    color:var(--teal);
+    margin:0 0 18px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .section h2::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:var(--line);
+  }
+
+  .edu-row{
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    margin-bottom:6px;
+  }
+  .edu-title{font-size:15px; font-weight:600; margin:0;}
+  .edu-meta{font-size:13px; color:var(--ink-soft); margin:2px 0 0;}
+  .edu-date{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--ink-soft);
+    white-space:nowrap;
+  }
+  .edu-detail{font-size:13.5px; color:var(--ink-soft); line-height:1.6; margin:8px 0 0;}
+
+  .proj{
+    padding:16px 18px;
+    background:var(--teal-soft);
+    border-left:3px solid var(--teal);
+    border-radius:2px;
+    margin-bottom:12px;
+  }
+  .proj:last-child{margin-bottom:0;}
+  .proj-title{
+    font-size:14.5px;
+    font-weight:600;
+    margin:0 0 5px;
+    color:var(--ink);
+  }
+  .proj-desc{
+    font-size:13.5px;
+    color:var(--ink-soft);
+    line-height:1.6;
+    margin:0;
+  }
+  .proj-stack{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    color:var(--teal);
+    margin-top:8px;
+  }
+
+  .course-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:8px 24px;
+  }
+  .course-item{
+    font-size:13.5px;
+    color:var(--ink-soft);
+    padding:7px 0;
+    border-bottom:1px solid var(--line);
+  }
+
+  .interests-line{
+    font-size:13.5px;
+    color:var(--ink-soft);
+    line-height:1.7;
+  }
+
+  @media (max-width:700px){
+    .sheet{grid-template-columns:1fr;}
+    .sidebar{padding:32px 24px;}
+    .main{padding:32px 24px;}
+  }
+
+  @media print{
+    body{background:#fff; padding:0;}
+    .sheet{box-shadow:none; max-width:100%;}
+  }
+</style>
+</head>
+<body>
+
+<div class="sheet">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="photo">
+      <img src="dada.jpeg" alt="Profile photo">
+    </div>
+    <p class="name">Wafi</p>
+    <p class="role">Informatics Student — Systems &amp; Software</p>
+
+    <div class="side-block">
+      <h2>CONTACT</h2>
+      <div class="contact-line"><span>EMAIL</span>wafisutisna746@gmail.com</div>
+      <div class="contact-line"><span>PHONE</span>+62 857-2075-1597</div>
+      <div class="contact-line"><span>LOCATION</span>Surabaya, East Java, Indonesia</div>
+      <div class="contact-line"><span>NRP</span>5025251017</div>
+    </div>
+
+    <div class="side-block">
+      <h2>CORE SKILLS</h2>
+      <div class="skill-row"><span>C</span><span class="lvl">proficient</span></div>
+      <div class="skill-row"><span>Python</span><span class="lvl">proficient</span></div>
+      <div class="skill-row"><span>HTML</span><span class="lvl">working</span></div>
+    </div>
+
+    <div class="side-block">
+      <h2>TOOLS</h2>
+      <div class="tag-list">
+        <span class="tag">GitHub Codespaces</span>
+        <span class="tag">FUSE</span>
+        <span class="tag">Git</span>
+      </div>
+    </div>
+
+    <div class="side-block">
+      <h2>INTERESTS</h2>
+      <div class="tag-list">
+        <span class="tag">Football / Futsal</span>
+        <span class="tag">Fashion</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <section class="section">
+      <h2>EDUCATION</h2>
+      <div class="edu-row">
+        <div>
+          <p class="edu-title">Institut Teknologi Sepuluh Nopember (ITS)</p>
+          <p class="edu-meta">B.Sc. Informatics — International Undergraduate Program (IUP)</p>
+        </div>
+        <div class="edu-date">2025 — Present</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>PROJECTS</h2>
+
+      <div class="proj">
+        <p class="proj-title">Operating System from Scratch</p>
+        <p class="proj-desc">Built a minimal OS covering bootloader, kernel, and a custom filesystem with read/write/delete operations, plus a shell supporting multiple commands. Developed and tested in GitHub Codespaces.</p>
+        <p class="proj-stack">C · x86 Assembly</p>
+      </div>
+
+      <div class="proj">
+        <p class="proj-title">Caesar Cipher FUSE Filesystem</p>
+        <p class="proj-desc">Implemented a FUSE-based filesystem that transparently encrypts and decrypts file contents using a Caesar cipher, with an accompanying demonstration walkthrough.</p>
+        <p class="proj-stack">C · FUSE</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+</body>
+</html>
